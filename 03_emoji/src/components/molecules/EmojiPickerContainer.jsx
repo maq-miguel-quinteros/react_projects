@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import { data as emojiList } from '../../db/data';
 import { EmojiSearch } from './EmojiSearch';
+import { EmojiButton } from './EmojiButton';
 
 export const EmojiPickerContainer = () => {
 
@@ -22,6 +23,10 @@ export const EmojiPickerContainer = () => {
         }
     }
 
+    const handleOnClickEmoji = (emoji) => {
+        const cursorPos = inputRef.current.selectionStart;
+    }
+
     return (
         <>
             <div>
@@ -30,7 +35,7 @@ export const EmojiPickerContainer = () => {
                 />
                 {emojis.map((emoji) => {
                     return (
-                        <div key={emoji.name}>{emoji.symbol}</div>)
+                        <EmojiButton key={emoji.name} emoji={emoji} onClick={handleOnClickEmoji} />)
                 })}
             </div>
         </>
