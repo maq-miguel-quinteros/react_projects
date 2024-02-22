@@ -12,10 +12,10 @@ export const EmojiPickerInput = () => {
 
 
     return (
-        <>   
-            
+        <>
+
             <input ref={refInput} />
-            <EmojiPicker reference={refInput}/>
+            <EmojiPicker reference={refInput} />
         </>
     )
 

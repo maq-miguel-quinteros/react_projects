@@ -1,10 +1,11 @@
 import { forwardRef } from "react"
 
-export const Input = ({type, value}, reference) => {
+export const Input = ({type, value, onChange}, reference) => {
 
     return (
         <>
             <input 
+                onChange={onChange}
                 ref={reference}
                 type={type} 
                 value={value}/>                
@@ -12,4 +13,4 @@ export const Input = ({type, value}, reference) => {
     )
 }
 
-export default forwardRef(Input)
+export default forwardRef(Input);

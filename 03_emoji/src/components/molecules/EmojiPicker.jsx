@@ -1,16 +1,25 @@
 import { forwardRef, useState } from "react"
 
+import { EmojiPickerContainer } from "./EmojiPickerContainer";
+
 export const EmojiPicker = (props, reference) => {
 
     const [isOpen, setIsOpen] = useState(false);
+
+    const handleClickOpen = () => {
+        setIsOpen(!isOpen);
+    }
+
     return (
         <>
             <div>
-                <button>🤞</button>
-                {isOpen ?
-                    <div></div>
+                <button onClick={handleClickOpen}>🤞</button>
+                <div>
+                    {isOpen ?
+                        <EmojiPickerContainer />
                         :
-                    ''}
+                        ''}
+                </div>
             </div>
         </>
     )
