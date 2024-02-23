@@ -1,21 +1,16 @@
 import { useRef } from "react"
 
 import { EmojiPicker } from "../molecules/EmojiPicker"
-import { Input } from "../atoms/Input";
 
 export const EmojiPickerInput = () => {
 
     // useRef se utiliza para obtener la referencia de un nodo HTML. Sirve para, por ejemplo, dar foco a un elemento cuando se hace clic en otro distinto
-
     const refInput = useRef(null);
-
-
 
     return (
         <>
-
             <input ref={refInput} />
-            <EmojiPicker reference={refInput} />
+            <EmojiPicker ref={refInput} />
         </>
     )
 

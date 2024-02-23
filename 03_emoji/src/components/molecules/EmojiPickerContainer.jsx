@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { forwardRef, useState } from 'react';
 
 import { data as emojiList } from '../../db/data';
 import { EmojiSearch } from './EmojiSearch';
 import { EmojiButton } from './EmojiButton';
 
-export const EmojiPickerContainer = () => {
+export const EmojiPickerContainer = (props, refInput) => {
 
     const [emojis, setEmojis] = useState(emojiList);
 
@@ -24,7 +24,7 @@ export const EmojiPickerContainer = () => {
     }
 
     const handleOnClickEmoji = (emoji) => {
-        const cursorPos = inputRef.current.selectionStart;
+        const cursorPos = refInput.current.selectionStart;
     }
 
     return (
@@ -35,11 +35,16 @@ export const EmojiPickerContainer = () => {
                 />
                 {emojis.map((emoji) => {
                     return (
-                        <EmojiButton key={emoji.name} emoji={emoji} onClick={handleOnClickEmoji} />)
+                        <EmojiButton                         
+                        key={emoji.name} 
+                        emoji={emoji} 
+                        onClick={handleOnClickEmoji} />)
                 })}
             </div>
         </>
     )
 }
+
+export default forwardRef(EmojiPickerContainer);
 
 // key={crypto.randomUUID()}
