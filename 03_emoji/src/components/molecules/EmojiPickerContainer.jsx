@@ -1,10 +1,12 @@
+/** key={crypto.randomUUID()} */
+
 import { forwardRef, useState } from 'react';
 
 import { data as emojiList } from '../../db/data';
 import { EmojiSearch } from './EmojiSearch';
 import { EmojiButton } from './EmojiButton';
 
-export const EmojiPickerContainer = (props, refInput) => {
+export const EmojiPickerContainer = forwardRef(function EmojiPickerContainer(props, refInput) {
 
     const [emojis, setEmojis] = useState(emojiList);
 
@@ -38,13 +40,9 @@ export const EmojiPickerContainer = (props, refInput) => {
                         <EmojiButton                         
                         key={emoji.name} 
                         emoji={emoji} 
-                        onClick={handleOnClickEmoji} />)
+                        onClick={handleOnClickEmoji(emoji)} />)
                 })}
             </div>
         </>
     )
-}
-
-export default forwardRef(EmojiPickerContainer);
-
-// key={crypto.randomUUID()}
+});
