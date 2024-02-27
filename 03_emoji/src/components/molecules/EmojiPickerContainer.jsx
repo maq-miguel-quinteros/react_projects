@@ -25,8 +25,16 @@ export const EmojiPickerContainer = forwardRef(function EmojiPickerContainer(pro
         }
     }
 
-    const handleOnClickEmoji = (emoji) => {
+    const handleOnClickEmoji = (emoji) => {        
         const cursorPos = refInput.current.selectionStart;
+        const text = refInput.current.value;
+        const prev = text.slice(0,cursorPos);
+        const next = text.slice(cursorPos);
+
+        refInput.current.value = prev + emoji.symbol + next;
+        refInput.current.selectionStart = cursorPos + emoji.symbol.length;
+        refInput.current.selectionEnd = cursorPos + emoji.symbol.length;
+        refInput.current.focus();
     }
 
     return (
@@ -38,9 +46,9 @@ export const EmojiPickerContainer = forwardRef(function EmojiPickerContainer(pro
                 {emojis.map((emoji) => {
                     return (
                         <EmojiButton                         
-                        key={emoji.name} 
+                        key={emoji.symbol} 
                         emoji={emoji} 
-                        onClick={handleOnClickEmoji(emoji)} />)
+                        onClickButton={handleOnClickEmoji} />)
                 })}
             </div>
         </>

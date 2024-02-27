@@ -1,7 +1,7 @@
-export const EmojiButton = ({emoji, onClick}) => {
+export const EmojiButton = ({emoji, onClickButton}) => {
 
     const handleClick = () => {
-        onClick(emoji);
+        onClickButton(emoji);
     }
 
     return (
