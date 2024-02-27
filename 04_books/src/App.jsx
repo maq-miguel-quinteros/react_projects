@@ -1,9 +1,20 @@
+import {BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import { Home } from './pages/Home';
+import {Create} from './pages/Create';
+import { View } from './pages/View';
+
 function App() {
-  
 
   return (
     <>
-      <h1>Hola mundo!!!</h1>
+      <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home />}/>
+        <Route path='create' element={<Create />}/>
+        <Route path='view/:bookId' element={<View />}/>
+      </Routes>
+      </BrowserRouter>
     </>
   )
 }
