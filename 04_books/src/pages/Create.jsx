@@ -1,5 +1,11 @@
 import {useState} from 'react';
 
+import { useAppContext } from '../store/Store';
+
+/** permite generar un hipervínculo para poder navegar entre las rutas */
+import {Link} from 'react-router-dom';
+import { Layout } from '../components/organisms/Layout';
+
 export const Create = () => {
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
@@ -7,6 +13,8 @@ export const Create = () => {
     const [intro, setIntro] = useState('');
     const [completed, setCompleted] = useState(false);
     const [review, setReview] = useState('');
+
+    const store = useAppContext();
 
     const handleChange = (event) => {
         const name = event.target.name;
@@ -62,11 +70,11 @@ export const Create = () => {
             review
         }
 
-        // TODO registrar el libro
+        store.createItem(newBook)
     }
 
     return (
-        <>
+        <Layout>
             <form onSubmit={handleSubmit}>
                 <div>
                     <div>Title</div>
@@ -125,6 +133,6 @@ export const Create = () => {
                     type='submit'                  
                     value='Register book' />
             </form>
-        </>
+        </Layout>
     );
 }
