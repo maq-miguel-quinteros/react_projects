@@ -2,7 +2,7 @@ import {useState} from 'react';
 
 import { useAppContext } from '../store/Store';
 
-/** permite generar un hipervínculo para poder navegar entre las rutas */
+/** Link permite generar un hipervínculo para poder navegar entre las rutas */
 import {Link, useNavigate} from 'react-router-dom';
 import { Layout } from '../components/organisms/Layout';
 
