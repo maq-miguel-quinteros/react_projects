@@ -1,3 +1,4 @@
+import { Book } from "../components/organisms/Book";
 import { Layout } from "../components/organisms/Layout";
 import { useAppContext } from "../store/Store";
 
@@ -9,7 +10,11 @@ export const Home = () => {
 
     return (
         <Layout>
-            {store.items.map((item) => <div>{item.title}</div>)}
+            {store.items.map((item) => <div>
+                <Book 
+                    item={item}
+                    key={item.id}/>
+            </div>)}
         </Layout>
     );
 }

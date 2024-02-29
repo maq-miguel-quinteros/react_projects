@@ -3,7 +3,7 @@ import {useState} from 'react';
 import { useAppContext } from '../store/Store';
 
 /** permite generar un hipervínculo para poder navegar entre las rutas */
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import { Layout } from '../components/organisms/Layout';
 
 export const Create = () => {
@@ -13,6 +13,9 @@ export const Create = () => {
     const [intro, setIntro] = useState('');
     const [completed, setCompleted] = useState(false);
     const [review, setReview] = useState('');
+
+    // mediante el hook useNavigate hago a navigate una función que permite direccionar a otra ruta
+    const navigate = useNavigate();
 
     const store = useAppContext();
 
@@ -70,7 +73,9 @@ export const Create = () => {
             review
         }
 
-        store.createItem(newBook)
+        store.createItem(newBook);
+        // con está función indico que direccione a home al terminar store.createItem
+        navigate('/');
     }
 
     return (
