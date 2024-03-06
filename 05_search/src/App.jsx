@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { SearchBar } from './components/SearchBar';
 
 const emails = [
   {
@@ -107,8 +108,9 @@ function App() {
       <button onClick={handlerClick} name='calendar'>Calendar</button>
       <button onClick={handlerClick} name='email'>Email</button>
       <div>
-        {data && data.map(item => 
-        <div>{item.title}</div>)}
+        <SearchBar 
+        items={data}
+        onItemSelected={()=>{}}/>
       </div>
     </div>
   )
