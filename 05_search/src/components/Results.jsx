@@ -28,16 +28,13 @@ export const Results = ({items, onItemSelected, query, onResultsCalculated}) => 
         onResultsCalculated(results);
     }, [results])
 
-    const handleItemClick = (item) =>{
-
-    }
-
     return (
         <div>
             {query !== '' ?
                 filteredItems.map(item => <MarkedItem 
                     key={item.id}
-                    item={item} 
+                    item={item}
+                    query={query} 
                     onClick={onItemSelected}/>)
             : ''}
         </div>
